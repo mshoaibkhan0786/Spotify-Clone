@@ -1,152 +1,179 @@
-body{
-    margin:0;
-    background-color: rgb(37, 34, 34);
+body {
+    margin: 0;
+    background-color: black;
     color: white;
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 52px 1fr;
-    grid-template-areas:"nav nav"
-                        "side main";
-    height:100vh;
+    grid-template-rows: 52px 1fr 65px;
+    grid-template-areas: "nav nav"
+        "side main"
+        "preview preview";
+    height: 100vh;
     font-family: system-ui, sans-serif;
 }
-nav{
+
+nav {
     grid-area: nav;
     justify-content: space-between;
     align-items: center;
-    padding:0 10px;
+    padding: 0 10px;
     background-color: black;
 }
-.sidebar{
-    grid-area: side;
+
+.buttons {
+    border: 1px solid red;
+    color: silver;
 }
-main{
-    grid-area: main;
-}
-.buttons{
-    border:1px solid red;
-    color:silver;
-}
-.left{
+
+nav .left {
     column-gap: 15px;
-    padding:0 10px
+    padding: 0 10px
 }
-.right{
+
+nav .right {
     color: silver;
     column-gap: 5px;
 }
+
 .left img {
     height: 25px;
 }
-.home img{
-    height:20px;
+
+.home img {
+    height: 20px;
 }
-.search{
-   background-color: rgb(31, 31, 31);
-   outline:white;
-   border-radius:500px;
-   column-gap: 10px;
-   padding:0 10px;
-   border: 1.5px solid transparent; 
-   transition: border-color 0.2s ease, background-color 0.2s ease;
+
+.search {
+    background-color: rgb(31, 31, 31);
+    outline: white;
+    border-radius: 500px;
+    column-gap: 10px;
+    padding: 0 10px;
+    border: 1.5px solid transparent;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.search:hover{
+
+.search:hover {
     border-color: rgba(255, 255, 255, 0.089);
     background-color: rgba(235, 235, 235, 0.172);
 }
-.search img{
-    height:20px;
+
+.search img {
+    height: 20px;
     transition: scale 0.2s ease;
 }
-.search img:hover{
+
+.search img:hover {
     filter: brightness(0) invert(1);
-    scale:1.02;
+    scale: 1.02;
 }
-.search-box{
-    padding:2px 5px;
-    background:transparent ;
-    outline:none ;
-    width:250px;
-    height:32px;
-    color:white;
-    border:none;
+
+.search-box {
+    padding: 2px 5px;
+    background: transparent;
+    outline: none;
+    width: 250px;
+    height: 32px;
+    color: white;
+    border: none;
 }
+
 .search-box::placeholder {
-    color: rgb(179, 179, 179); 
-    opacity: 1; 
+    color: rgb(179, 179, 179);
+    opacity: 1;
 }
-.search:focus-within{
-    border:1.5px solid white;
+
+.search:focus-within {
+    border: 1.5px solid white;
 }
-.PSD{
+
+.PSD {
     font-weight: 700;
     font-size: 13px;
-    transition:color 0.2s ease;
+    transition: color 0.2s ease;
 }
-.ISL{
+
+.ISL {
     font-weight: 700;
     font-size: 11px;
-    padding:0 10px;
+    padding: 0 10px;
     column-gap: 5px;
-    transition:color 0.2s ease;
+    transition: color 0.2s ease;
 }
-.divider{
+
+.divider {
     background-color: rgb(216, 206, 206);
     height: 22px;
     width: 2px;
-    margin:0 10px
+    margin: 0 10px
 }
-.ISL img{
+
+.ISL img {
     height: 14px;
 }
+
 .ISL:hover img {
     filter: brightness(0) invert(1);
 }
-.PSD:hover,.ISL:hover{
+
+.PSD:hover,
+.ISL:hover {
     color: white;
-    scale:1.01;
-    cursor:pointer
+    scale: 1.01;
+    cursor: pointer
 }
-.login{
+
+.login {
     border-radius: 500px;
     background-color: white;
-    color:black;
-    padding:11px 25px;
+    color: black;
+    padding: 11px 25px;
     font-size: 11px;
     transition: scale 0.2s ease, background-color 0.2s ease;
 }
-.login:hover{
+
+.login:hover {
     background-color: rgb(234, 228, 228);
-    color:black;
-    scale:1.04;
+    color: black;
+    scale: 1.04;
 }
-.home{
+
+.home {
     position: relative;
-    height:45px;
-    width:45px;
-    background-color: rgba(255, 255, 255,0.09);
+    height: 45px;
+    width: 45px;
+    background-color: rgba(255, 255, 255, 0.09);
     border-radius: 50%;
     cursor: pointer;
     transition: scale 0.2s ease, background-color 0.2s ease;
 }
+
 .searchseparator {
-    background-color:silver;
+    background-color: silver;
     height: 22px;
     width: 0.5px;
-    margin:0 3px;
+    margin: 0 3px;
 }
-.logo,.search img{
-    cursor:pointer;
+
+.logo,
+.search img {
+    cursor: pointer;
     position: relative;
 }
-.home:hover{
-    scale:1.02;
-    background-color:  rgba(255, 255, 255, 0.141);
+
+.home:hover {
+    scale: 1.02;
+    background-color: rgba(255, 255, 255, 0.141);
 }
+
 .tooltip {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.tooltip::after{
+
+.tooltip::after {
     content: attr(data-tooltip);
     position: absolute;
     top: calc(100% + 8px);
@@ -165,7 +192,53 @@ main{
     transition: opacity 0.2s ease, visibility 0.2s ease;
     z-index: 10;
 }
-.tooltip:hover::after{
+
+.tooltip:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+.sidebar {
+    grid-area: side;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: preview;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 7px 5px;
+    background: linear-gradient(to right, #af2896, #509bf5);
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 0px 20px 0px 10px;
+}
+
+footer .left {
+    padding:3px;
+}
+.preview{
+    font-size: 11.5px;
+    font-weight: bold;
+}
+.ad{
+    font-size: 13px;
+    font-weight: 500;
+}
+footer .right {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    height: 38px;
+    width: 140px;
+    border-radius: 500px;
+    font-size: 13px;
+    transition: scale 0.1s ease;
+}
+
+footer .right:hover {
+    scale: 1.05;
 }
