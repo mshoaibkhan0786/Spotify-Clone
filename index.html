@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify</title>
+    <link rel="icon" href="icons/spotify_logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
 </head>
+
 <body>
     <nav class="flex">
         <div class="left flex items-center justify-center">
             <div class="logo" title="Spotify"><img src="icons/logo.svg" alt="Logo"></div>
-            <div class="home tooltip flex items-center justify-center" data-tooltip="Home"><img src="icons/home.svg" alt="Home"></div>
-            <div class="search flex justify-center items-center" >
+            <div class="home tooltip flex items-center justify-center" data-tooltip="Home"><img src="icons/home.svg"
+                    alt="Home"></div>
+            <div class="search flex justify-center items-center">
                 <span class="tooltip" data-tooltip="Search">
                     <img src="icons/search.svg" alt="Search">
                 </span>
@@ -29,24 +33,59 @@
             <div class="download PSD">Download</div>
             <div class="divider"></div>
             <div class="install ISL flex justify-center items-center">
-                 <img src="icons/download.svg" alt="Download">Install App</div>
+                <img src="icons/download.svg" alt="Download">Install App
+            </div>
             <div class="signup ISL">Sign up</div>
             <div class="login ISL align-center justify-center">Log In</div>
         </div>
     </nav>
-    <div class="sidebar border">
-
+    <div class="sidebar">
+        <div class="head flex align-center">
+            <div class="left flex items-center justify-center">Your Library</div>
+            <div class="right flex items-center justify-center"><span>+</span>Create</div>
+        </div>
+        <div class="content">
+            <div class="sectionA">
+                <div class="first flex items-center">Create your first playlist</div>
+                <div class="second flex items-center">It's easy, we'll help you</div>
+                <div class="third flex items-center">Create playlist</div>
+            </div>
+            <div class="sectionB">
+                <div class="first flex items-center">Let's find some podcasts to follow</div>
+                <div class="second flex items-center">We'll keep you updated on new episodes</div>
+                <div class="third flex items-center">Browse podcasts</div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="top flex">
+                <div class="legal">Legal</div>
+                <div class="safetycenter">Safety & Privacy Center</div>
+                <div class="privacy">Privacy Policy</div>
+                <div class="cookies">Cookies</div>
+                <div class="aboutus">About Ads</div>
+                <div class="accessibility">Accessibility</div>
+            </div>
+            <div class="center">
+                <div class="cookies">Cookies</div>
+            </div>
+            <div class="bottom items-center">
+                <img class="globe" src="icons/globe.svg" alt="Globe"> English
+            </div>
+        </div>
     </div>
+    <div class="resize"></div>
     <main class="">
 
     </main>
     <footer class="footer flex items-center">
         <div class="left">
             <div class="preview">Preview of Spotify</div>
-            <div class="ad">Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</div>
+            <div class="ad">Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.
+            </div>
         </div>
         <div class="right flex justify-center items-center ">Sign up for free</div>
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

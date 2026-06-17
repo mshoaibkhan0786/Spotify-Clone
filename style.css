@@ -3,13 +3,14 @@ body {
     background-color: black;
     color: white;
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 275px 5px 1fr;
     grid-template-rows: 52px 1fr 65px;
-    grid-template-areas: "nav nav"
-        "side main"
-        "preview preview";
+    grid-template-areas: "nav nav nav"
+        "side resize main"
+        "preview preview preview";
     height: 100vh;
     font-family: system-ui, sans-serif;
+    user-select: none;
 }
 
 nav {
@@ -119,7 +120,7 @@ nav .right {
 .PSD:hover,
 .ISL:hover {
     color: white;
-    scale: 1.01;
+    scale: 1.02;
     cursor: pointer
 }
 
@@ -197,15 +198,6 @@ nav .right {
     opacity: 1;
     visibility: visible;
 }
-
-.sidebar {
-    grid-area: side;
-}
-
-main {
-    grid-area: main;
-}
-
 footer {
     grid-area: preview;
     justify-content: space-between;
@@ -215,19 +207,23 @@ footer {
     border-radius: 7px;
     cursor: pointer;
     padding: 0px 20px 0px 10px;
+    background-color: black;
 }
 
 footer .left {
-    padding:3px;
+    padding: 3px;
 }
-.preview{
+
+.preview {
     font-size: 11.5px;
     font-weight: bold;
 }
-.ad{
+
+.ad {
     font-size: 13px;
     font-weight: 500;
 }
+
 footer .right {
     background-color: white;
     color: black;
@@ -239,6 +235,201 @@ footer .right {
     transition: scale 0.1s ease;
 }
 
+.resize {
+    grid-area: resize;
+    width: 5px;
+    height: 100%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+}
+.resize::after {
+    content: "";
+    width: 1px;
+    height: 98%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+.resize:hover::after {
+    opacity: 0.6;
+}
 footer .right:hover {
     scale: 1.05;
+}
+
+.sidebar {
+    grid-area: side;
+    background-color: #181818;
+    margin: 0px 2px 0px 5px;
+    border-radius: 7px;
+}
+.head{
+    justify-content: space-between;
+    padding: 15px 10px;
+    position: relative;
+}
+.head .left{
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+.head .right {
+    background-color: #242424;
+    width: 85px;
+    height: 31px;
+    position: relative;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.head .right span{
+    font-size: 23px;
+    font-weight: 200;
+    opacity: 0.7;
+    padding-right:5px;
+    padding-bottom: 2px;
+}
+.head .right:hover{
+    background-color: #303030;
+}
+.head .right::after{
+    content: "Create a playlist,folder or Jam";
+    position: absolute;
+    top: calc(-100% - 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #383737;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 10;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+}
+.head .right:hover::after{
+    opacity: 1;
+    visibility: visible;
+}
+.head .left{
+    font-size: 13px;
+    font-weight: 700;
+}
+.content{
+    height:219.5px;
+    overflow-y: auto;
+}
+.content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.content:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+.sectionA,.sectionB{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:10px 0px 10px 10px;
+    font-size: 10px;
+    background-color: #252525;
+    border-radius: 7px;
+    padding: 0px 10px 10px 15px;
+    height: 100px;
+    gap: 7px;
+}
+.sectionB{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.first{
+    font-size: 13px;
+    font-weight: bold;
+}
+.second{
+    font-size: 11px;
+    white-space: nowrap;
+    font-weight: 550;
+}
+.third{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 11px;
+    width: fit-content;
+    margin-top: 10px;
+    padding: 5px 14px 6px 14px;
+    border-radius: 20px;
+    margin-bottom: -5px;
+    cursor: pointer;
+    transition: scale 0.2s ease;
+}
+.third:hover{
+    scale: 1.04;
+    background-color: #e7e7e7;
+}
+.top{
+    font-size: 10px;
+    flex-wrap: wrap;    
+    column-gap: 12px;
+    row-gap: 8px;
+    margin: 20px 25px 7px 20px;
+    font-weight: 450;
+    color: silver;
+    cursor: pointer;
+}
+.center{
+    font-size: 10px;
+    flex-wrap: wrap;    
+    gap: 12px;
+    margin: 5px 25px 25px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.center .cookies:hover{
+    text-decoration: underline 1.5px;
+}
+.bottom{
+    display: inline-flex;
+    font-size: 11px;
+    margin-left: 25px;
+    column-gap: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.493);
+    border-radius: 50px;
+    transition: scale 0.2s ease;
+}
+.bottom:hover{
+    border-color: white;
+    scale: 1.05;
+}
+.globe{
+    height: 12px;
+}
+main {
+    grid-area: main;
+    background-color: #242424;
 }
